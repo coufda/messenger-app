@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function sendMessageToServer(messageText) {
         const xhr = new XMLHttpRequest();
-        xhr.open("POST", "server.php", true);
+        xhr.open("POST", "sendMessage.php", true);
         xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xhr.onreadystatechange = function () {
             if (xhr.readyState === 4 && xhr.status === 200) {
@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function checkForNewMessages() {
         const xhr = new XMLHttpRequest();
-        xhr.open("GET", "server.php", true);
+        xhr.open("GET", "getMessages.php", true);
         xhr.onreadystatechange = function () {
             if (xhr.readyState === 4 && xhr.status === 200) {
                 const response = JSON.parse(xhr.responseText);
